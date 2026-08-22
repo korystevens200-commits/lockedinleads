@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lead Dashboard — Sparkle & Shine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/custom.css" />
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen">
+
+<header class="border-b border-slate-200 bg-white sticky top-0 z-30">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-2.5">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center text-white text-lg">✨</div>
+      <div>
+        <div class="font-bold text-base leading-tight">Sparkle &amp; Shine</div>
+        <div class="text-xs text-slate-400 leading-tight">Lead Dashboard</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <button id="notifyPermBtn" class="hidden sm:inline-flex text-xs font-medium text-slate-500 hover:text-slate-700 border border-slate-200 rounded-lg px-3 py-2">
+        Enable desktop alerts
+      </button>
+      <button id="bellBtn" class="relative w-10 h-10 rounded-xl border border-slate-200 hover:bg-slate-50 flex items-center justify-center text-lg">
+        🔔
+        <span id="bellCount" class="hidden absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
+      </button>
+      <a href="demo.html" class="text-sm font-medium text-teal-700 hover:text-teal-800 bg-teal-50 rounded-xl px-4 py-2.5">View Storefront ↗</a>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-6 py-8">
+
+  <!-- Stats -->
+  <div class="grid grid-cols-2 sm:grid-cols-5 gap-4 mb-8">
+    <div class="bg-white border border-slate-200 rounded-2xl p-5">
+      <div class="text-xs font-medium text-slate-400 mb-1">Total Leads</div>
+      <div id="statTotal" class="text-2xl font-bold">0</div>
+    </div>
+    <div class="bg-white border border-slate-200 rounded-2xl p-5">
+      <div class="text-xs font-medium text-slate-400 mb-1">Qualified</div>
+      <div id="statQualified" class="text-2xl font-bold text-amber-600">0</div>
+    </div>
+    <div class="bg-white border border-slate-200 rounded-2xl p-5">
+      <div class="text-xs font-medium text-slate-400 mb-1">Booked</div>
+      <div id="statBooked" class="text-2xl font-bold text-emerald-600">0</div>
+    </div>
+    <div class="bg-white border border-slate-200 rounded-2xl p-5">
+      <div class="text-xs font-medium text-slate-400 mb-1">Needs Follow-up</div>
+      <div id="statFollowUp" class="text-2xl font-bold text-red-600">0</div>
+    </div>
+    <div class="bg-white border border-slate-200 rounded-2xl p-5">
+      <div class="text-xs font-medium text-slate-400 mb-1">Conversion</div>
+      <div id="statConversion" class="text-2xl font-bold text-teal-600">0%</div>
+    </div>
+  </div>
+
+  <!-- Filters -->
+  <div class="flex flex-wrap items-center gap-2 mb-4">
+    <button data-filter="all" class="bg-teal-600 text-white text-sm font-medium px-4 py-2 rounded-full transition">All</button>
+    <button data-filter="new" class="bg-white text-slate-600 border border-slate-200 text-sm font-medium px-4 py-2 rounded-full transition">New</button>
+    <button data-filter="qualified" class="bg-white text-slate-600 border border-slate-200 text-sm font-medium px-4 py-2 rounded-full transition">Qualified</button>
+    <button data-filter="needs-follow-up" class="bg-white text-slate-600 border border-slate-200 text-sm font-medium px-4 py-2 rounded-full transition">Needs Follow-up</button>
+    <button data-filter="booked" class="bg-white text-slate-600 border border-slate-200 text-sm font-medium px-4 py-2 rounded-full transition">Booked</button>
+    <button data-filter="out-of-area" class="bg-white text-slate-600 border border-slate-200 text-sm font-medium px-4 py-2 rounded-full transition">Out of Area</button>
+  </div>
+
+  <!-- Table -->
+  <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="text-left text-xs font-semibold text-slate-400 border-b border-slate-100 uppercase tracking-wide">
+            <th class="py-3 px-4">Contact</th>
+            <th class="py-3 px-4">Address</th>
+            <th class="py-3 px-4">Size</th>
+            <th class="py-3 px-4">Type</th>
+            <th class="py-3 px-4">Frequency</th>
+            <th class="py-3 px-4">Quote</th>
+            <th class="py-3 px-4">Status</th>
+            <th class="py-3 px-4">Updated</th>
+          </tr>
+        </thead>
+        <tbody id="leadsBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <p class="text-xs text-slate-400 mt-4">
+    Automated follow-ups sweep every few seconds in this demo (compressed from a real 24h cadence) — leave this tab open to watch stalled leads move to “Needs Follow-up” automatically.
+  </p>
+</main>
+
+<!-- Toast stack -->
+<div id="toastStack" class="fixed top-20 right-6 z-50 flex flex-col gap-2"></div>
+
+<!-- Lead detail overlay -->
+<div id="detailOverlay" class="hidden fixed inset-0 z-50 bg-slate-900/40 flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[85vh] flex flex-col overflow-hidden">
+    <div class="px-6 py-5 border-b border-slate-100 flex items-start justify-between shrink-0">
+      <div>
+        <div id="detailName" class="text-lg font-bold"></div>
+        <div id="detailMeta" class="mt-1.5 flex gap-2"></div>
+      </div>
+      <button id="closeDetail" class="text-slate-400 hover:text-slate-600 text-2xl leading-none">×</button>
+    </div>
+    <div class="overflow-y-auto px-6 py-5 chat-scroll">
+      <div id="detailInfo" class="grid grid-cols-2 gap-4 text-sm mb-6"></div>
+      <div class="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-2">Conversation</div>
+      <div id="detailTranscript"></div>
+    </div>
+    <div class="px-6 py-4 border-t border-slate-100 shrink-0">
+      <button id="sendFollowUpBtn" class="w-full bg-slate-900 hover:bg-slate-800 text-white text-sm font-medium rounded-xl py-2.5 transition">
+        Send Follow-up Now
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="js/rules.js"></script>
+<script src="js/api.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
