@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Automation — LockedinLeads</title>
+<meta name="description" content="Configure the AI assistant, business hours, follow-ups and booking." />
+<meta name="theme-color" content="#08090c" />
+<meta name="color-scheme" content="dark light" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/tokens.css" />
+<link rel="stylesheet" href="/css/base.css" />
+<link rel="stylesheet" href="/css/components.css" />
+<link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+
+<main class="app-main">
+  <div class="page-head">
+    <h1 class="page-title">Automation</h1>
+    <p class="page-sub">How the assistant talks, when it follows up, and what it can book.</p>
+  </div>
+
+  <div class="filter-scroll mb-4" id="sectionTabs" role="tablist"></div>
+  <div id="panel"></div>
+
+  <div class="wizard-actions">
+    <button class="btn btn-ghost" id="resetBtn">Discard changes</button>
+    <button class="btn btn-primary" id="saveBtn">Save changes</button>
+  </div>
+</main>
+
+<script src="/js/api.js"></script>
+<script src="/js/ui.js"></script>
+<script src="/js/shell.js"></script>
+<script src="/js/settingsforms.js"></script>
+<script src="/js/automation.js"></script>
+</body>
+</html>

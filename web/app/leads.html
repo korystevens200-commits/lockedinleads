@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Leads — LockedinLeads</title>
+<meta name="description" content="Every lead, its conversation and its booking status." />
+<meta name="theme-color" content="#08090c" />
+<meta name="color-scheme" content="dark light" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/tokens.css" />
+<link rel="stylesheet" href="/css/base.css" />
+<link rel="stylesheet" href="/css/components.css" />
+<link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+
+<main class="app-main">
+  <div class="page-head between">
+    <div class="grow" style="min-width:0">
+      <h1 class="page-title">Leads</h1>
+      <p class="page-sub" id="leadsSub">Loading&hellip;</p>
+    </div>
+    <button class="btn btn-primary btn-sm" id="newLeadBtn">+ Lead</button>
+  </div>
+
+  <div class="row gap-2 mb-3">
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+           stroke-linecap="round"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.35-4.35"/></svg>
+      <input class="input" id="searchInput" type="search" placeholder="Search name, phone, email or service"
+             aria-label="Search leads" />
+    </div>
+  </div>
+
+  <div class="filter-scroll mb-4" id="statusFilters" role="tablist" aria-label="Filter by status"></div>
+
+  <div id="leadsArea"></div>
+</main>
+
+<script src="/js/api.js"></script>
+<script src="/js/ui.js"></script>
+<script src="/js/shell.js"></script>
+<script src="/js/leadform.js"></script>
+<script src="/js/leadpanel.js"></script>
+<script src="/js/leads.js"></script>
+</body>
+</html>

@@ -3,6 +3,13 @@ primary_region = "iad"
 
 [build]
 
+[env]
+  APP_ENV = "production"
+  PORT = "8080"
+  DATA_DIR = "/data"
+  # Secrets (SECRET_KEY, ANTHROPIC_API_KEY, SMTP_*, TWILIO_*, STRIPE_*) are set
+  # with `fly secrets set` — never in this file.
+
 [http_service]
   internal_port = 8080
   force_https = true
@@ -10,6 +17,18 @@ primary_region = "iad"
   auto_start_machines = true
   min_machines_running = 1
 
+  [[http_service.checks]]
+    interval = "30s"
+    timeout = "5s"
+    grace_period = "10s"
+    method = "GET"
+    path = "/api/public/config"
+
+# One machine + one volume: SQLite is not shared across machines.
 [[mounts]]
-  source = "data_volume"
-  destination = "/app/data"
+  source = "lockedinleads_data"
+  destination = "/data"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "512mb"

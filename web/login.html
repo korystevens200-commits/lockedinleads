@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Sign in — LockedinLeads</title>
+<meta name="description" content="Sign in to your LockedinLeads dashboard." />
+<meta name="theme-color" content="#08090c" />
+<meta name="color-scheme" content="dark light" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/tokens.css" />
+<link rel="stylesheet" href="/css/base.css" />
+<link rel="stylesheet" href="/css/components.css" />
+<link rel="stylesheet" href="/css/auth.css" />
+</head>
+<body>
+
+<div class="auth-wrap">
+  <main class="auth-card">
+    <a class="auth-brand brand" href="/">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+        stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h8l-1 8 10-12h-8l1-8z"/></svg></span>
+      <span class="brand-name">Lockedin<span>Leads</span></span>
+    </a>
+    <h1 class="auth-title">Sign in</h1>
+    <p class="auth-sub">Your leads, conversations and bookings.</p>
+
+    <form id="loginForm" novalidate>
+      <div class="field">
+        <label for="email">Email</label>
+        <input class="input" id="email" name="email" type="email" inputmode="email"
+               autocomplete="username" required autofocus />
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input class="input" id="password" name="password" type="password"
+               autocomplete="current-password" required />
+      </div>
+      <p class="field-error hidden mb-3" id="loginError" role="alert"></p>
+      <button class="btn btn-primary btn-block btn-lg" id="submitBtn" type="submit">Sign in</button>
+    </form>
+
+    <div class="demo-hint" id="demoHint">
+      <strong>Demo account</strong><br />
+      <code>demo@lockedinleads.local</code> / <code>demodemo123</code>
+    </div>
+    <p class="auth-foot">Not a client yet? <a class="accent-text" href="/#pricing">See plans</a></p>
+  </main>
+</div>
+
+<script src="/js/api.js"></script>
+<script src="/js/ui.js"></script>
+<script src="/js/login.js"></script>
+</body>
+</html>

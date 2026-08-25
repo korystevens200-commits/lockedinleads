@@ -1,0 +1,104 @@
+/* ============================================================
+   LockedinLeads design tokens
+   Dark-first (the product is used on phones, often at night, in
+   vans and on job sites). Light theme is a full peer, not an
+   afterthought — some owners work on a bright desktop all day.
+   ============================================================ */
+
+:root {
+  /* Brand */
+  --accent:        #00e37a;
+  --accent-strong: #00b862;
+  --accent-soft:   rgba(0, 227, 122, 0.12);
+  --accent-line:   rgba(0, 227, 122, 0.32);
+  --accent-ink:    #04140c;
+
+  --info:      #7c9cff;
+  --info-soft: rgba(124, 156, 255, 0.14);
+  --warn:      #ffbf47;
+  --warn-soft: rgba(255, 191, 71, 0.14);
+  --danger:      #ff6b6b;
+  --danger-soft: rgba(255, 107, 107, 0.14);
+
+  /* Surfaces — dark */
+  --bg:        #08090c;
+  --bg-veil:   rgba(8, 9, 12, 0.82);
+  --surface:   #0f1116;
+  --surface-2: #14171f;
+  --surface-3: #1a1e28;
+  --border:    #232833;
+  --border-strong: #333a49;
+
+  /* Text */
+  --text:       #f2f5f8;
+  --text-muted: #98a1b3;
+  --text-dim:   #6b7488;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow:    0 8px 24px -8px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 24px 60px -20px rgba(0, 0, 0, 0.75);
+  --glow:      0 0 0 1px var(--accent-line), 0 8px 32px -12px rgba(0, 227, 122, 0.4);
+
+  --r-sm: 8px;
+  --r:    12px;
+  --r-lg: 18px;
+  --r-xl: 26px;
+  --r-full: 999px;
+
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+  --space-5: 24px; --space-6: 32px; --space-7: 48px; --space-8: 64px;
+
+  --nav-h: 60px;
+  --tabbar-h: 68px;
+  --sidebar-w: 248px;
+  --maxw: 1240px;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme='light'] {
+  --accent:        #00a855;
+  --accent-strong: #008544;
+  --accent-soft:   rgba(0, 168, 85, 0.10);
+  --accent-line:   rgba(0, 168, 85, 0.28);
+  --accent-ink:    #ffffff;
+
+  --info:      #3b62d9;
+  --info-soft: rgba(59, 98, 217, 0.10);
+  --warn:      #b26b00;
+  --warn-soft: rgba(178, 107, 0, 0.10);
+  --danger:      #d13a3a;
+  --danger-soft: rgba(209, 58, 58, 0.10);
+
+  --bg:        #f6f7f9;
+  --bg-veil:   rgba(246, 247, 249, 0.85);
+  --surface:   #ffffff;
+  --surface-2: #ffffff;
+  --surface-3: #f1f3f6;
+  --border:    #e2e6ec;
+  --border-strong: #cbd2dd;
+
+  --text:       #0b0d12;
+  --text-muted: #59637a;
+  --text-dim:   #7c869b;
+
+  --shadow-sm: 0 1px 2px rgba(11, 13, 18, 0.06);
+  --shadow:    0 6px 20px -8px rgba(11, 13, 18, 0.16);
+  --shadow-lg: 0 24px 50px -24px rgba(11, 13, 18, 0.24);
+  --glow:      0 0 0 1px var(--accent-line), 0 8px 28px -14px rgba(0, 168, 85, 0.5);
+}
+
+/* Status colours are shared by badges, charts and pipeline bars so a status
+   always reads the same way wherever it appears. */
+:root {
+  --st-new:        var(--info);
+  --st-contacted:  #a78bfa;
+  --st-qualified:  var(--warn);
+  --st-booked:     var(--accent);
+  --st-noresponse: #8b93a7;
+  --st-lost:       var(--danger);
+  --st-customer:   #34d399;
+}
