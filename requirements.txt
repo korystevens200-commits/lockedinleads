@@ -1,0 +1,6 @@
+# The application itself runs on the Python standard library alone.
+#
+# This single dependency is only needed to use a live Claude model. Without it
+# (or without ANTHROPIC_API_KEY) the built-in conversation engine handles every
+# lead, so the product still works end to end.
+anthropic>=1.0.0

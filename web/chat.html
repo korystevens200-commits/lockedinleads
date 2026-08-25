@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Get a quote</title>
+<meta name="description" content="Get an instant quote and book an appointment." />
+<meta name="theme-color" content="#08090c" />
+<meta name="color-scheme" content="dark light" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/tokens.css" />
+<link rel="stylesheet" href="/css/base.css" />
+<link rel="stylesheet" href="/css/components.css" />
+<link rel="stylesheet" href="/css/app.css" />
+<link rel="stylesheet" href="/css/chat.css" />
+</head>
+<body class="chat-page">
+
+<div class="chat-shell" id="shell">
+  <header class="chat-header">
+    <div class="chat-avatar" id="chatAvatar"></div>
+    <div class="grow" style="min-width:0">
+      <div class="chat-title truncate" id="chatBusiness">Loading&hellip;</div>
+      <div class="chat-status"><span class="dot dot-live"></span><span id="chatAssistant">Connecting</span></div>
+    </div>
+  </header>
+
+  <div class="chat-scroll" id="chatScroll">
+    <div class="chat-intro" id="chatIntro">
+      <h1 id="introTitle">Get a quote in about a minute</h1>
+      <p id="introBody">Answer a few quick questions and we'll check real openings on the calendar.</p>
+    </div>
+    <div class="convo" id="convo" style="padding:0;background:transparent"></div>
+  </div>
+
+  <div class="chat-foot" id="chatFoot"></div>
+</div>
+
+<script src="/js/ui.js"></script>
+<script src="/js/chatwidget.js"></script>
+</body>
+</html>

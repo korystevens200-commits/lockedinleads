@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Dashboard — LockedinLeads</title>
+<meta name="description" content="Your lead pipeline and booked appointments." />
+<meta name="theme-color" content="#08090c" />
+<meta name="color-scheme" content="dark light" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/tokens.css" />
+<link rel="stylesheet" href="/css/base.css" />
+<link rel="stylesheet" href="/css/components.css" />
+<link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+
+<main class="app-main">
+  <div class="page-head between">
+    <div class="grow" style="min-width:0">
+      <h1 class="page-title">Dashboard</h1>
+      <p class="page-sub" id="pageSub">Loading your pipeline&hellip;</p>
+    </div>
+    <div class="row gap-2">
+      <select class="select desktop-only" id="rangeSelect" style="width:auto;min-height:40px" aria-label="Date range">
+        <option value="7">Last 7 days</option>
+        <option value="30" selected>Last 30 days</option>
+        <option value="90">Last 90 days</option>
+        <option value="0">All time</option>
+      </select>
+      <button class="btn btn-primary btn-sm" id="newLeadBtn">+ Lead</button>
+    </div>
+  </div>
+
+  <div id="statsArea"></div>
+
+  <div class="grid-2 mt-5">
+    <section class="card card-flush">
+      <div class="card-head">
+        <div>
+          <div class="card-title">Needs you now</div>
+          <div class="tiny dim mt-1">Leads where a reply or decision is waiting</div>
+        </div>
+        <a class="btn btn-sm btn-quiet" href="/app/leads.html">All leads</a>
+      </div>
+      <div id="attentionList" class="card-body"></div>
+    </section>
+
+    <section class="card card-flush">
+      <div class="card-head">
+        <div class="card-title">Upcoming appointments</div>
+        <a class="btn btn-sm btn-quiet" href="/app/appointments.html">Calendar</a>
+      </div>
+      <div id="upcomingList" class="card-body"></div>
+    </section>
+  </div>
+
+  <section class="card card-flush mt-4">
+    <div class="card-head"><div class="card-title">Recent activity</div></div>
+    <div id="activityList" class="card-body"></div>
+  </section>
+</main>
+
+<script src="/js/api.js"></script>
+<script src="/js/ui.js"></script>
+<script src="/js/shell.js"></script>
+<script src="/js/leadform.js"></script>
+<script src="/js/dashboard.js"></script>
+</body>
+</html>
